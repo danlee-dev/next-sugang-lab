@@ -1,7 +1,7 @@
 // 학교 수강신청 화면 (고객사 코드, :3000).
 //   - 신청 버튼 -> NextQueue('enter') 로 대기열 통과 -> 받은 토큰을 붙여 POST /api/enroll
 //   - /live WebSocket 으로 AI 시간표 도우미(L5), 서버 시간(L6), 실시간 잔여석(L7) 을 받는다
-// '뚫어 보기'(개발자도구) 단계를 위해 일부러 남겨 둔 구멍이 있다. docs/MISSIONS.md 의 H1~H5 를 보라.
+// '뚫어 보기'(개발자도구) 단계를 위해 일부러 남겨 둔 구멍이 있다. docs/MISSIONS.md 의 H1~H3 을 보라.
 
 (function () {
   var state = {
@@ -16,7 +16,7 @@
   };
   var live = null;
 
-  // 운영자가 대기열을 잠깐 끌 수 있게 만든 스위치. 서버가 토큰을 확인하지 않으면 누구나 끌 수 있다 (H2)
+  // 운영자가 대기열을 잠깐 끌 수 있게 만든 스위치. 서버가 토큰을 확인하지 않으면 누구나 끌 수 있다 (H3)
   window.QUEUE = { enabled: true };
 
   var $ = function (id) { return document.getElementById(id); };
@@ -147,7 +147,7 @@
     $('donut').style.setProperty('--p', Math.round((me.credits / me.maxCredits) * 100) + '%');
   }
 
-  // 시작 전에는 신청 버튼을 잠근다. 화면만 잠그는 것이라 개발자도구로 풀 수 있다 (H4). 진짜 검사는 서버가 한다
+  // 시작 전에는 신청 버튼을 잠근다. 화면 안내일 뿐이고, 진짜 검사는 서버가 한다 (not_open)
   function lockButtons() {
     var closed = now() < state.openAt;
     document.querySelectorAll('.btn-apply').forEach(function (b) {
@@ -177,7 +177,7 @@
   // ---- 신청 --------------------------------------------------------------
   function apply(key) {
     if (!state.me) return;
-    if (!window.QUEUE.enabled) return enroll(key, null); // 대기열이 꺼져 있으면 바로 신청 (H2 구멍)
+    if (!window.QUEUE.enabled) return enroll(key, null); // 대기열이 꺼져 있으면 바로 신청 (H3 구멍)
     NextQueue('enter', { action: 'enroll', studentId: state.me.student.id }, function (token, reason) {
       if (reason === 'cancel') return;
       enroll(key, token);
