@@ -25,7 +25,7 @@
 
 ## 빠른 시작
 
-Node 20 이상이 필요합니다.
+Node 22 이상이 필요합니다. Windows 는 WSL 안에서 하고, 저장소는 WSL 홈(`~`) 아래에 클론합니다. `/mnt/c` 아래에 두면 `npm install` 이 느리고, 코드를 고쳐도 서버가 다시 켜지지 않을 수 있습니다.
 
 ```bash
 git clone https://github.com/danlee-dev/next-sugang-lab.git

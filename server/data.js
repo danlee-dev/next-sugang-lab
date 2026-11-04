@@ -4,10 +4,11 @@
 export const SEMESTER = '2026학년도 2학기';
 export const MAX_CREDITS = 22;
 
+// 관심과목은 H2 에서 fetch 로 신청하는 COSE342-01(화4 목4)과 같은 과목이거나 시간이 겹치지 않게 골랐다
 export const STUDENTS = [
-  { id: '2025320101', name: '조영환', college: '정보대학', dept: '컴퓨터학과', year: 2, wish: ['COSE341-01', 'COSE361-02', 'COSE213-01'] },
-  { id: '2024320202', name: '윤가빈', college: '정보대학', dept: '컴퓨터학과', year: 3, wish: ['COSE474-01', 'COSE342-01', 'GEQR067-00'] },
-  { id: '2023380303', name: '오동', college: '정보대학', dept: '데이터과학과', year: 4, wish: ['COSE371-00', 'COSE471-00', 'COSE490-00'] },
+  { id: '2025320101', name: '조영환', college: '정보대학', dept: '컴퓨터학과', year: 2, wish: ['COSE341-01', 'COSE214-01', 'COSE213-01'] },
+  { id: '2024320202', name: '윤가빈', college: '정보대학', dept: '컴퓨터학과', year: 3, wish: ['COSE474-01', 'COSE352-01', 'GEQR067-00'] },
+  { id: '2023380303', name: '오동', college: '정보대학', dept: '데이터과학과', year: 4, wish: ['COSE371-00', 'COSE362-01', 'COSE490-00'] },
 ];
 
 // 교시: 1~6 교시 75분, 7교시부터 저녁. 미니 시간표는 0~15 교시를 그린다
